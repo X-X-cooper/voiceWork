@@ -153,7 +153,7 @@ def RJ_No(filename):
         show('--空文件，结束。')
         return None
     RJ = {}
-    id = re.search("RJ\d{6}", filename.__str__())
+    id = re.search("RJ\d+", filename.__str__())
     if id:
         id = (filename.__str__())[id.regs[0][0]:id.regs[0][1]]
         show(f'--找到{id}')
