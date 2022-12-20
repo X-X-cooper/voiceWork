@@ -86,7 +86,7 @@ def RJ_No(filename):
         show('--空文件，结束。')
         return None
     RJ = {}
-    id = re.search("RJ\d{6}", filename.__str__())
+    id = re.search("RJ\d+", filename.__str__())
     if id:
         id = (filename.__str__())[id.regs[0][0]:id.regs[0][1]]
         show(f'--找到{id}')
@@ -94,7 +94,7 @@ def RJ_No(filename):
         return RJ
     else:
         for file in filename.rglob("*"):
-            id = re.search("RJ\d{6}", file.__str__())
+            id = re.search("RJ\d+", file.__str__())
             if file.exists() and id:
                 id = (file.__str__())[id.regs[0][0]:id.regs[0][1]]
                 show(f'--找到{id}')
